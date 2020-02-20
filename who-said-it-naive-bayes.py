@@ -22,7 +22,7 @@ m_sents = [(s, 'melville') for s in m_sents_all if len(s)>2]    # EDIT
 
 #------------------------------------------------ STEP 3
 print("3. Joining the two author sentence lists...")
-sents = [a_sents + m_sents]      # EDIT
+sents = a_sents + m_sents      # EDIT
 
 #------------------------------------------------ STEP 4 (COMPLETE)
 print("4. Sentence stats:")
@@ -38,9 +38,9 @@ random.shuffle(sents)
 #------------------------------------------------ STEP 6
 print("6. Partitioning...")
 
-test_sents = [sents[:1000]]    # EDIT
-devtest_sents = [sents[1000:2000]]  # EDIT
-train_sents = [sents[2000:]]    # EDIT
+test_sents = sents[:1000] # EDIT
+devtest_sents = sents[1000:2000]  # EDIT
+train_sents = sents[2000:]    # EDIT
 
 print(" # of test sentences:", len(test_sents))
 print(" # of devtest sentences:", len(devtest_sents))
@@ -68,9 +68,9 @@ def gen_feats(sent):
 
 #------------------------------------------------ STEP 8
 print("8. Generating feature sets...")
-test_feats = [gen_feats(test_sents)]     # EDIT
-devtest_feats = [gen_feats(devtest_feats)]  # EDIT
-train_feats = [gen_feats(train_feats)]    # EDIT
+test_feats = gen_feats(test_sents)     # EDIT
+devtest_feats = gen_feats(devtest_feats)  # EDIT
+train_feats = gen_feats(train_feats)    # EDIT
 
 #------------------------------------------------ STEP 9
 print("9. Training...")
