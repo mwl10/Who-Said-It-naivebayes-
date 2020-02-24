@@ -33,7 +33,7 @@ print(" # of Melville sentences:", len(m_sents))
 #------------------------------------------------ STEP 5
 print("5. Shuffling...")
 # EDIT -- shuffle sents here
-random.shuffle(sents)
+random.Random(10).shuffle(sents)
 
 #------------------------------------------------ STEP 6
 print("6. Partitioning...")
@@ -95,12 +95,15 @@ for (sent, auth) in devtest_sents:
     guess = whosaid.classify(gen_feats(sent))
     if auth == 'austen' and guess == 'austen':
         aa.append( (auth, guess, sent) )
+        mm.append( (auth, guess, sent) )
+        am.append( (auth, guess, sent) )
+        ma.append( (auth, guess, sent) )
     # EDIT below to populate mm, am, ma
 
 #------------------------------------------------ STEP 12
 print("12. Sample CORRECT and INCORRECT predictions from dev-test set:")
 print("-------")
-for x in (aa):  # EDIT change (aa) to (aa, mm, am, ma)
+for x in (aa, mm, am, ma):  # EDIT change (aa) to (aa, mm, am, ma)
     auth, guess, sent = random.choice(x)
     print('REAL=%-8s GUESS=%-8s' % (auth, guess))  # string formatting
     print(' '.join(sent))
@@ -109,4 +112,4 @@ print()
 
 #------------------------------------------------ STEP 13
 print("13. Looking up 40 most informative features...")
-# EDIT -- use .show_most_informative_feats_all()
+whosaid.show_most_informative_feats_all(40)
