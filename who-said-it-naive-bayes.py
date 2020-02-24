@@ -62,18 +62,21 @@ def gen_feats(sent):
     featdict = {}
     for w in sent:
         if noCharNames == True:
-            if w in mainchars: w = 'MontyPython'
-        featdict['contains-'+w.lower()] = 1
+            if w in mainchars:
+                w = 'MontyPython'
+        featdict['contains-'+ w.lower()] = 1
     return featdict
 
 #------------------------------------------------ STEP 8
 print("8. Generating feature sets...")
-test_feats = gen_feats(test_sents)     # EDIT
-devtest_feats = gen_feats(devtest_feats)  # EDIT
-train_feats = gen_feats(train_feats)    # EDIT
+
+test_feats = [(gen_feats(n), author) for (n, author) in test_sents]
+devtest_feats = [(gen_feats(n), author) for (n, author) in devtest_sents]
+train_feats = [(gen_feats(n), author) for (n, author) in train_sents]
 
 #------------------------------------------------ STEP 9
 print("9. Training...")
+
 whosaid = nltk.NaiveBayesClassifier.train(train_feats)      # EDIT
 
 #------------------------------------------------ STEP 10
