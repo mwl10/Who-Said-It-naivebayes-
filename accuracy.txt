@@ -1,0 +1,2 @@
+Accuracy with random data split: .955, .954 
+Accuracy with fixed random seed: .951

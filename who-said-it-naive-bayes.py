@@ -34,6 +34,7 @@ print(" # of Melville sentences:", len(m_sents))
 print("5. Shuffling...")
 # EDIT -- shuffle sents here
 random.Random(10).shuffle(sents)
+#random.shuffle(sents)
 
 #------------------------------------------------ STEP 6
 print("6. Partitioning...")
