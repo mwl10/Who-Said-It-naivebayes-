@@ -114,6 +114,12 @@ for x in (aa, mm, am, ma):  # EDIT change (aa) to (aa, mm, am, ma)
     print("-------")
 print()
 
+#------------------------------------------------ STEP 13
+print("13. Looking up 40 most informative features...")
+whosaid.show_most_informative_feats_all(40)
+
+#### CODE FOR PART B INSTEAD OF SHELL SESSION
+
 # Part B number 4: Trying out sentences
 austen_sent = "Anne was to leave them on the morrow, an event which they all dreaded."
 carroll_sent = "So Alice began telling them her adventures from the time when she first saw the White Rabbit."
@@ -278,6 +284,4 @@ print("End Part B Analysis")
 print("-----------------------------------------------------")
 
 
-#------------------------------------------------ STEP 13
-print("13. Looking up 40 most informative features...")
-whosaid.show_most_informative_feats_all(40)
+
